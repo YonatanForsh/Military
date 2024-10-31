@@ -30,7 +30,7 @@ function App() {
   return (
     <div>
       <Add setMissions={setMissions} statuses={statuses} prioritys={prioritys} newMission={newMission}/>
-      <List missions={missions} />
+      <List missions={missions} statuses={statuses} setStatuses={setStatuses}/>
     </div>
   )
 }

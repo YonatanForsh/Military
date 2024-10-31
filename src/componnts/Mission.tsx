@@ -5,10 +5,10 @@ interface Props{
     key: string
     mission: MissionModel
     statuses: string[]
-    setStatus: (x: (status: string) => string) => void;
+    setStatuses: (x: (status: string) => string) => void;
 }
 
-function Mission({mission}:  Props) {
+function Mission({mission, statuses}:  Props) {
 
   const deleteMission = async () => {
     console.log(mission);
@@ -16,7 +16,7 @@ function Mission({mission}:  Props) {
   }
 
   const changeStatus = () => {
-
+    fetch(`https://reactexambackend.onrender.com/missions/8463488/progress/${mission._id}`, { method: 'POST' })
   }
 
   return (
@@ -26,7 +26,7 @@ function Mission({mission}:  Props) {
       <p>Priorety { mission.priorety }</p>
       <p>Description { mission.description }</p>
       <button onClick={deleteMission}>Delete</button>
-      <button onClick={changeStatus}>{mission.status}</button>
+      { mission.status != "Completed" && <button onClick={changeStatus}>{mission.status}</button>}
     </div>
   )
 }
