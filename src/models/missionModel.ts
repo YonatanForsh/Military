@@ -1,4 +1,5 @@
 export default class MissionModel {
+    public _id?:string
     constructor(
         public name: string,
         public status: string,

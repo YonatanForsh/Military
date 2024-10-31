@@ -15,7 +15,7 @@ function Add({ setMissions, statuses, prioritys, newMission }: Props) {
     const priorityRef = useRef<HTMLSelectElement>(null);
     const descriptionRef = useRef<HTMLInputElement>(null);
 
-    const addMission = () => {
+    const addMission = async () => {
         const name = nameRef.current?.value;
         const status = statusRef.current?.value;
         const priority = priorityRef.current?.value;
@@ -31,8 +31,9 @@ function Add({ setMissions, statuses, prioritys, newMission }: Props) {
                   };
                   fetch('https://reactexambackend.onrender.com/missions/8463488', request)
                       .then(response => response.json())
-                      .then(data => setMissions(data));
-                      // getData()
+                      .then(data => setMissions(m=>[...m, newMission]));
+                      console.log(newMission);
+                      
                   } catch (error) {
                     console.log("Can't post data", error)
                   } 
@@ -42,7 +43,7 @@ function Add({ setMissions, statuses, prioritys, newMission }: Props) {
     };
 
     return (
-        <div>
+        <div className='add'>
             <input type="text" placeholder="Enter Name" ref={nameRef} />
             <select ref={statusRef}>
                 {statuses.map((status, index) => (

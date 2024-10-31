@@ -12,18 +12,18 @@ function App() {
 
   const [newMission, setMission] = useState<any>(null) 
 
-  //Get data from APIserver
-  const getData = async () => {
-    try {
-      const response = await fetch("https://reactexambackend.onrender.com/missions/8463488")
-      const data = await response.json()
-      setMissions(data)
-    } catch (error) {
-      console.log("Can't get data", error)
+  
+  useEffect( () => {
+    //Get data from APIserver
+    const getData = async () => {
+      try {
+        const response = await fetch("https://reactexambackend.onrender.com/missions/8463488")
+        const data = await response.json()
+        setMissions(data)
+      } catch (error) {
+        console.log("Can't get data", error)
+      }
     }
-  }
-
-  useEffect(() => {
     getData()
   }, [missions, statuses])
 
