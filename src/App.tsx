@@ -27,6 +27,7 @@ function App() {
     getData()
   }, [missions, statuses])
 
+
   return (
     <div>
       <Add setMissions={setMissions} statuses={statuses} prioritys={prioritys} newMission={newMission}/>

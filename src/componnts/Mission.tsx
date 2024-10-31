@@ -8,7 +8,7 @@ interface Props{
     setStatuses: (x: (status: string) => string) => void;
 }
 
-function Mission({mission, statuses}:  Props) {
+function Mission({ mission, statuses }:  Props) {
 
   const deleteMission = async () => {
     console.log(mission);

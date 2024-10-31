@@ -16,6 +16,7 @@ function Add({ setMissions, statuses, prioritys, newMission }: Props) {
     const descriptionRef = useRef<HTMLInputElement>(null);
 
     const addMission = async () => {
+        
         const name = nameRef.current?.value;
         const status = statusRef.current?.value;
         const priority = priorityRef.current?.value;
